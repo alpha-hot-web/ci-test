@@ -1,64 +1,63 @@
-# name: image recreation in progress
-# on: push
-
-# jobs:
-#    buildPushDockerImage:
-
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: cloning the repository
-#         uses: actions/checkout@v4   
-        
-#       - name: set up QEMU 
-#         uses: docker/setup-qemu-action@v3      
-        
-#       - name: set up docker building
-#         uses: docker/setup-building-action@v3      
-        
-#       - name: Login to docker Hub
-#         uses: docker/login-action@v3
-#         with:
-#           username: ${{ secrets.DOCKERHUB_USERNAME }}
-#           password: ${{ secrets.DOCKERHUB_TOKEN}}    
-      
-#       - name: Build and push
-#         uses: docker/build-push-action@v5
-#         with:
-#           context: .
-#           push: true
-#           tags:
-
-
-
-          
-
-          
-
-name: creating docker image
+name: image recreation in progress
 on: push
 
 jobs:
-    BuildPushDockerImage:
-        runs-on: ubuntu-latest
-        steps:
-            - name: cloning the repo
-              uses: actions/checkout@v4
+   buildPushDockerImage:
+       runs-on: ubuntu-latest
+       steps:
+           - name: cloning the repository
+             uses: actions/checkout@v4   
+             
+           - name: set up QEMU 
+             uses: docker/setup-qemu-action@v3      
+             
+           - name: set up docker building
+             uses: docker/setup-building-action@v3      
+             
+           - name: Login to docker Hub
+             uses: docker/login-action@v3
+             with:
+               username: ${{ secrets.DOCKERHUB_USERNAME }}
+               password: ${{ secrets.DOCKERHUB_TOKEN}}    
+           
+           - name: Build and push
+             uses: docker/build-push-action@v5
+             with:
+               context: .
+               push: true
+               tags: nelvin06/gh-image2:latest
 
-            - name: Set up QEMU
-              uses: docker/setup-qemu-action@v3
 
-            - name: Set up Docker Buildx
-              uses: docker/setup-buildx-action@v3
 
-            - name: Login to Docker Hub
-              uses: docker/login-action@v3
-              with:
-                username: ${{ secrets.DOCKERHUB_USERNAME }}
-                password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+
+          
+
+# name: creating docker image
+# on: push
+
+# jobs:
+#     BuildPushDockerImage:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: cloning the repo
+#               uses: actions/checkout@v4
+
+#             - name: Set up QEMU
+#               uses: docker/setup-qemu-action@v3
+
+#             - name: Set up Docker Buildx
+#               uses: docker/setup-buildx-action@v3
+
+#             - name: Login to Docker Hub
+#               uses: docker/login-action@v3
+#               with:
+#                 username: ${{ secrets.DOCKERHUB_USERNAME }}
+#                 password: ${{ secrets.DOCKERHUB_TOKEN }}
                 
-            - name: Build and push
-              uses: docker/build-push-action@v5
-              with:
-                context: .
-                push: true
-                tags:  nelvin06/gh-image:latest
+#             - name: Build and push
+#               uses: docker/build-push-action@v5
+#               with:
+#                 context: .
+#                 push: true
+#                 tags:  nelvin06/gh-image:latest
