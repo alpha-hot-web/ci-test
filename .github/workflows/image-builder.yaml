@@ -2,8 +2,7 @@ name: image recreation in progress
 on: push
 
 jobs:
-   build/push docker image:
-   
+   buildPushDockerImage:
     runs-on: ubuntu-latest
     steps:
       - name: cloning the repository
