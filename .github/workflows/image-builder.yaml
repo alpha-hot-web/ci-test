@@ -5,7 +5,7 @@ jobs:
     build/push docker image:
     runs-on: ubuntu-latest
 
-steps:
+    steps:
          - name: cloning the repository
            uses: action/checkout@v4
 
