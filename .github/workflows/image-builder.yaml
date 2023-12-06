@@ -2,14 +2,14 @@ name: image recreation in progress
 on: push
 
 jobs:
-  BuildPushDockerImage:
+   BuildPushDockerImage:
     runs-on: ubuntu-latest
 
     steps:
          - name: cloning the repository
            uses: action/checkout@v4
 
-         - name: set up QEMU
+         - name: set up QEMU 
            uses: docker/setup-qemu-action@v3
 
          - name: set up docker building
